@@ -77,4 +77,4 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
    6.1 报错原因：Adding a hook is as simple as creating a file. This can be accomplished using your favorite editor, a script or a basic echo command. For example, on Linux/macOS:就是说这个命令是适合 Linux/macOS 的，我们写项目时是用 windows+vs code，其 vs code 的终端在 wins 下是使用 powershell 的，但是 echo 在 unix/mac 和 wins 中的使用是有差异的。因此如果想在 wins 下使用这条命令创建添加钩子文件，可以在 git bash 环境下使用，因为 git bash 使用的是类似 Unix 的环境
 
-7. 随便写一个文件，然后执行 git commit -m "test"测试一下，成功打印
+7. 随便写一个文件,不符合 eslint 规则的，然后执行 git commit -m "test"测试一下，能拦截掉就代表成功了。
