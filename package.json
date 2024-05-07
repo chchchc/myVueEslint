@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint --ext .vue,.js,.ts,.jsx,.tsx src",
     "prettier": "prettier --write src/**/*.{vue,js,jsx,scss,md,json}",
-    "prettierAll": "prettier --write ."
+    "prettierAll": "prettier --write .",
+    "prepare": "husky"
   },
   "dependencies": {
     "vue": "^3.4.21"
@@ -20,7 +21,15 @@
     "eslint-config-prettier": "^8.10.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.17.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "prettier": "^2.8.8",
     "vite": "^5.2.0"
+  },
+  "lint-staged": {
+    "*.{vue,js}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

@@ -1,10 +1,5 @@
 <script setup>
 import HelloWorld from "./components/HelloWorld.vue";
-
-var msg = ["11", "2"];
-var name = "2";
-var aa = "1";
-console.log("2");
 </script>
 
 <template>

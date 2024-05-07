@@ -57,3 +57,24 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 3. eslint 校验生效是需要指定文件参数的：npx eslint --ext .vue,.js,.ts,.jsx,.tsx . 这样也是生效的，注意一个.结尾，代表文件参数
    见：<https://eslint.nodejs.cn/docs/latest/use/command-line-interface>
+
+## lint-staged + husky
+
+1. 安装 husky: npm install --save-dev husky
+
+2. 执行：husky init，会在项目根目录下生成一个 .husky 文件夹，里面有一个 pre-commit 文件，package.json 增加了一个 prepare 脚本，prepare 脚本会在每次 npm install（不带参数）之后自动执行。 也就是说当我们执行 npm install 安装完项目依赖后会执行 husky 命令，该命令会创建.husky/目录并指定该目录为 git hooks 所在的目录。
+
+2.1 可以创建新的钩子：echo "npm test" > .husky/pre-commit，会在 pre-commit 文件夹写入 npm test。
+
+3. 安装 lint-staged：npm add -D lint-staged。
+
+4. 在 package.json 配置 lint-staged 所需要的规则,见文件所示。
+
+5. 执行命令：echo "npx lint-staged" > .husky/pre-commit，在 pre-commit 中创建了一个钩子。
+
+6. 执行提交命令：git commit -m "test"测试一下，报错：.husky/pre-commit: .husky/pre-commit: cannot execute binary file
+   husky - pre-commit script failed (code 126)
+
+   6.1 报错原因：Adding a hook is as simple as creating a file. This can be accomplished using your favorite editor, a script or a basic echo command. For example, on Linux/macOS:就是说这个命令是适合 Linux/macOS 的，我们写项目时是用 windows+vs code，其 vs code 的终端在 wins 下是使用 powershell 的，但是 echo 在 unix/mac 和 wins 中的使用是有差异的。因此如果想在 wins 下使用这条命令创建添加钩子文件，可以在 git bash 环境下使用，因为 git bash 使用的是类似 Unix 的环境
+
+7. 随便写一个文件，然后执行 git commit -m "test"测试一下，成功打印
