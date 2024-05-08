@@ -28,5 +28,6 @@ module.exports = {
     semi: ["error", "always"],
     "no-console": "error",
     "no-unused-vars": "warn",
+    "linebreak-style": [0, "error", "windows"],
   },
 };
